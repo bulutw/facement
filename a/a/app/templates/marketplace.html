@@ -1,0 +1,13 @@
+{% if user.is_authenticated %}
+    <h1>{{ request.user }}</h1>
+{% endif %}
+
+{% for x in items %}
+    <h2>{{ x.name }}</h1>
+    <h4>{{ x.desc }}</h4>
+    <h3>{{ x.price }}TL</h3>
+        
+    <a href="{% url 'name?=add_to_cart' x.id %}">Add To Cart</a>
+
+    <p style="border-bottom: 1px solid #000;"></p>
+{% endfor %}

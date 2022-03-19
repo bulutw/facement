@@ -1,0 +1,15 @@
+{% if user.is_authenticated %}
+    <p>Hoşgeldin, {{ request.user }}</p>
+{% endif %}
+
+{% if messages %}
+    {% for message in messages %}
+        {% if message.tags %}  <h2 style="color: rgb(195, 13, 195)">{{ message }}</h2> {% endif %}
+    {% endfor %}
+{% endif %}
+
+<form method="POST">
+    {% csrf_token %}
+    {{ form }}
+    <button type="submit">Submit</button>
+</form>
